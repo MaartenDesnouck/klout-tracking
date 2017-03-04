@@ -22,7 +22,7 @@ function main() {
     var i = 1;
 
     // TODO only one getvalue per entry
-    while (SheetAccess.getValue(0, i, RAW) != undefined) {
+    while (GoogleSheet.getValue(0, i, RAW) != undefined) {
         updateRaw(RAW, META, BUFFER, row, i, date);
         i += 1;
     }
@@ -31,8 +31,7 @@ function main() {
         updateChartLegend(RAW, row, j);
     }
 
-    SheetAccess.setValue(row, 0, RAW, date);
-    SheetAccess.setValue(0, 1, META, Utilities.formatDate(new Date(), timezone,
+    GoogleSheet.setValue(row, 0, RAW, date);
+    GoogleSheet.setValue(0, 1, META, Utilities.formatDate(new Date(), timezone,
         "yyyy-MM-dd' at 'HH:mm:ss' (" + timezone + ")'"));
 }
-//TEST
