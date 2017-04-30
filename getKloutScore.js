@@ -1,5 +1,5 @@
 function getKloutScore(user, BUFFER) {
-    var apikey = '5vwvv52dxujawj6hzfyhsbue';
+    var apikey = PropertiesService.getScriptProperties().getProperty('kloutAPIKey');
     var data = JSON.parse(Web.getHTML(
         'http://api.klout.com/v2/identity.json/twitter?screenName=' + user +
         '&key=' + apikey, BUFFER));

@@ -1,12 +1,13 @@
 function updateRaw(RAW, META, BUFFER, row, kolom, date) {
     var index = kolom;
-    var user = GoogleSheet.getValue(0, kolom, RAW);
+    var user = getValue(0, kolom, RAW);
     var score = getKloutScore(user, BUFFER);
 
-    // zet score op juiste plaats in RAW
-    GoogleSheet.setValue(row, kolom, RAW, score);
+    // Put score in sheet
+    setValue(row, kolom, RAW, score);
 
-    // laten weten via IFTTT
+    // Notify me via IFTTT
+    // TODO just read from sheet which ones to notify me about
     if (user == 'maartendesnouck') {
         updateAndNotify(1, 1, META, score, 'MaartenDesnouck');
     } else if (user == 'VTKGent') {
