@@ -26,7 +26,7 @@ function main() {
         i += 1;
     }
 
-    // TODO BUBBLESORT (before update chart legend)
+    // TODO BUBBLESORT (before updating chart legend)
     for (var j = 1; j < i; j++) {
         updateChartLegend(RAW, row, j);
     }
