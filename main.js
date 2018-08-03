@@ -17,11 +17,11 @@ function main() {
     var timezone = 'GMT';
 
     var date = Utilities.formatDate(progstart, timezone, 'dd-MM-yyyy');
-    var row = dayDiff(STARTDATUM, progstart) + 1;
+    var row = time_dayDiff(STARTDATUM, progstart) + 1;
 
     var i = 1;
 
-    while (getValue(0, i, RAW) != undefined) {
+    while (sheet_getValue(0, i, RAW) != undefined) {
         updateRaw(RAW, META, BUFFER, row, i, date);
         i += 1;
     }
@@ -31,7 +31,7 @@ function main() {
         updateChartLegend(RAW, row, j);
     }
 
-    setValue(row, 0, RAW, date);
-    setValue(0, 1, META, Utilities.formatDate(new Date(), timezone,
+    sheet_setValue(row, 0, RAW, date);
+    sheet_setValue(0, 1, META, Utilities.formatDate(new Date(), timezone,
         "yyyy-MM-dd' at 'HH:mm:ss' (" + timezone + ")'"));
 }
